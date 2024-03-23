@@ -1,0 +1,13 @@
+version: "3.9"
+
+services:
+  app:
+    build:
+      context: .
+    port:
+     - 8002:8002
+    volumes:
+      - ./app:/app
+    command: >
+      sh c'python manage.py migrate &&
+           python manage.py runserver 0.0.0.0:8002'
